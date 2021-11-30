@@ -1,0 +1,81 @@
+---
+product:
+    videos:
+        limit: {{theme_settings.productpage_videos_count}}
+    reviews:
+        limit: {{theme_settings.productpage_reviews_count}}
+    related_products:
+        limit: {{theme_settings.productpage_related_products_count}}
+    similar_by_views:
+        limit: {{theme_settings.productpage_similar_by_views_count}}
+---
+{{inject "enableSwatches" theme_settings.show_swatches_on_grid}}
+{{inject "enableSizes" theme_settings.show_sizes_on_grid}}
+{{inject "enableImageHoverSwitcher" theme_settings.enable_image_hover_switcher}}
+{{inject "enableSelectedOptionLabel" theme_settings.show_selected_option_on_label}}
+{{inject "addToCartMode" theme_settings.add_to_cart_mode}}
+{{#partial "page"}}
+    {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+
+    {{#each product.shipping_messages}}
+        {{> components/common/alert-info message}}
+    {{/each}}
+
+    <div itemscope itemtype="http://schema.org/Product">
+        {{> components/products/product-view settings=../settings schema=true}}
+
+        {{#if product.videos.list.length}}
+            {{> components/products/videos product.videos}}
+        {{/if}}
+
+        {{#if theme_settings.enable_editorial_mode}}
+            {{> components/f/products/related-article}}
+        {{/if}}
+
+        {{#all settings.show_product_reviews product.reviews.total}}
+            {{> components/products/reviews reviews=product.reviews product=product urls=urls}}
+        {{/all}}
+
+        {{#if theme_settings.show_product_details_tabs}}
+            {{#if theme_settings.conversion_optimization_mode}}
+                {{> components/products/upsell}}
+            {{else}}
+                {{> components/products/tabs}}
+            {{/if}}
+        {{else}}
+            {{> components/products/upsell}}
+        {{/if}}
+
+    </div>
+
+{{/partial}}
+{{> layout/base}}
+
+<script type="text/javascript"> 
+var _learnq = _learnq || []; 
+
+ var item = {
+   Name: "{{product.title}}", 
+   ProductID: "{{product.id}}",
+   ImageURL: "{{getImage product.main_image 'product_size' (cdn theme_settings.default_image_product)}}", 
+   URL: "{{product.url}}",
+   Brand: "{{product.brand.name}}", 
+   Price: "{{product.price.without_tax.value}}",
+   CompareAtPrice: "{{product.price.rrp_without_tax.value}}"
+  };
+
+_learnq.push(['track', 'Viewed Product', item]); 
+
+_learnq.push(['trackViewedItem', {
+   Title: item.Name, 
+   ItemId: item.ProductID,
+   ImageUrl: item.ImageURL, 
+   Url: item.URL,
+
+   Metadata: { 
+     Brand: item.Brand,
+     Price: item.Price, 
+     CompareAtPrice: item.CompareAtPrice
+ } 
+ }]);
+</script>

@@ -1,0 +1,93 @@
+{{#unless (if template '===' 'pages/home')}}
+    {{#if banners.top}}
+        {{#if settings.data_tag_enabled}}
+            <div class="banners" data-banner-location="top">
+                {{#each (limit banners.top_metadata 1)}}
+                    <div class="banner" data-event-type="promotion" data-entity-id="{{this.id}}" data-name="{{this.banner-name}}" data-position="{{this.location}}" data-name="{{this.banner-name}}">
+                        <div data-event-type="promotion-click">
+                            {{{this.content}}}
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        {{else}}
+            <div class="banners" data-banner-location="top">
+                <div class="banner">
+                    {{{limit banners.top 1}}}
+                </div>
+            </div>
+        {{/if}}
+    {{/if}}
+{{/unless}}
+
+<header class="header {{#unless settings.store_logo.image}}header-logo-no-image{{/unless}} {{#if theme_settings.enable_simple_header}}{{#if theme_settings.enable_sticky_navigation}}fixed-header-simple{{/if}}{{/if}}" role="banner">
+    <a href="#" class="mobileMenu-toggle" data-mobile-menu-toggle="menu{{#if theme_settings.enable_simple_header}}-mobile{{/if}}">
+        <span class="mobileMenu-toggleIcon">Toggle menu</span>
+    </a>
+    <div class="header-top position--{{theme_settings.logo-position}} {{#if theme_settings.enable_simple_header}}header-simple{{/if}}">
+        {{> components/common/navigation}}
+
+        <div class="header-logo header-logo--{{theme_settings.logo-position}} {{#if theme_settings.enable_sticky_navigation}}sticky {{#if theme_settings.hide_logo_on_sticky_navigation}}hide-on-sticky{{/if}}{{/if}}">
+            {{> components/common/store-logo}}
+        </div>
+
+        {{#if theme_settings.enable_simple_header}}
+            <div class="navPages-container" id="menu" data-menu>
+                {{> components/common/navigation-menu}}
+            </div>
+        {{/if}}
+    </div>
+
+    {{{region name="header_bottom"}}}
+    {{#unless theme_settings.enable_simple_header}}
+        <div class="navPages-container {{#if theme_settings.enable_sticky_navigation}}sticky{{/if}}" id="menu" data-menu>
+            {{> components/common/navigation-menu}}
+        </div>
+    {{else}}
+        <div class="navPages-container navPages-mobile" id="menu-mobile" data-menu>
+            {{> components/common/navigation-menu}}
+        </div>
+    {{/unless}}
+    {{#if theme_settings.show_global_banner}}
+        {{> components/f/global-banner/banner}}
+    {{/if}}
+    <style>
+        .announcement-banner .banners .topbanner-label,
+        .announcement-banner .banners a {
+            font-family: Montserrat,Arial,Helvetica,sans-serif;
+            font-style: normal;
+        }
+        .announcement-banner .banner-wrapper {
+            flex-wrap: wrap;
+        }
+        .announcement-banner .banners svg {
+            fill: #fff;
+            height: 20px;
+        }
+        .announcement-banner .topbanner-label {
+            margin-right: 30px;
+        }
+        .announcement-banner a {
+            margin-right: 30px;
+        }
+        @media (max-width: 767px) {
+            .topbanner-label {
+                width: 100%;
+                flex-shrink: 0;
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+    <div class="banners announcement-banner">
+        <div class="banners">
+           <div class="banner-wrapper">
+                <span class="topbanner-label">Book Your Free Appointment</span>
+                <svg height="24px" viewBox="-16 0 480 480" width="24px" xmlns="http://www.w3.org/2000/svg"><path d="m408 48h-32v16h32c13.253906 0 24 10.746094 24 24v216h-416v-216c0-13.253906 10.746094-24 24-24h32v-16h-32c-22.082031.027344-39.9726562 17.917969-40 40v256c.0273438 22.082031 17.917969 39.972656 40 40h118.9375l-6 48h-8.9375c-4.417969 0-8 3.582031-8 8v24h-32v16h240v-16h-32v-24c0-4.417969-3.582031-8-8-8h-8.9375l-6-48h118.9375c22.082031-.027344 39.972656-17.917969 40-40v-256c-.027344-22.082031-17.917969-39.972656-40-40zm-112 416h-144v-16h144zm-17.0625-32h-109.875l6-48h97.875zm129.0625-64h-368c-13.253906 0-24-10.746094-24-24v-24h416v24c0 13.253906-10.746094 24-24 24zm0 0"/><path d="m400 336h16v16h-16zm0 0"/><path d="m112 264h224c13.253906 0 24-10.746094 24-24v-192c0-13.253906-10.746094-24-24-24h-32c0-13.253906-10.746094-24-24-24s-24 10.746094-24 24h-64c0-13.253906-10.746094-24-24-24s-24 10.746094-24 24h-32c-13.253906 0-24 10.746094-24 24v192c0 13.253906 10.746094 24 24 24zm224-16h-224c-4.417969 0-8-3.582031-8-8v-152h240v152c0 4.417969-3.582031 8-8 8zm-64-224c0-4.417969 3.582031-8 8-8s8 3.582031 8 8v16c0 4.417969-3.582031 8-8 8s-8-3.582031-8-8zm-112 0c0-4.417969 3.582031-8 8-8s8 3.582031 8 8v16c0 4.417969-3.582031 8-8 8s-8-3.582031-8-8zm-48 16h32c0 13.253906 10.746094 24 24 24s24-10.746094 24-24h64c0 13.253906 10.746094 24 24 24s24-10.746094 24-24h32c4.417969 0 8 3.582031 8 8v24h-240v-24c0-4.417969 3.582031-8 8-8zm0 0"/><path d="m168 112h-16c-8.835938 0-16 7.164062-16 16v16c0 8.835938 7.164062 16 16 16h16c8.835938 0 16-7.164062 16-16v-16c0-8.835938-7.164062-16-16-16zm-16 32v-16h16v16zm0 0"/><path d="m232 112h-16c-8.835938 0-16 7.164062-16 16v16c0 8.835938 7.164062 16 16 16h16c8.835938 0 16-7.164062 16-16v-16c0-8.835938-7.164062-16-16-16zm-16 32v-16h16v16zm0 0"/><path d="m296 112h-16c-8.835938 0-16 7.164062-16 16v16c0 8.835938 7.164062 16 16 16h16c8.835938 0 16-7.164062 16-16v-16c0-8.835938-7.164062-16-16-16zm-16 32v-16h16v16zm0 0"/><path d="m232 176h-16c-8.835938 0-16 7.164062-16 16v16c0 8.835938 7.164062 16 16 16h16c8.835938 0 16-7.164062 16-16v-16c0-8.835938-7.164062-16-16-16zm-16 32v-16h16v16zm0 0"/><path d="m168 176h-16c-8.835938 0-16 7.164062-16 16v16c0 8.835938 7.164062 16 16 16h16c8.835938 0 16-7.164062 16-16v-16c0-8.835938-7.164062-16-16-16zm-16 32v-16h16v16zm0 0"/><path d="m296 176h-16c-8.835938 0-16 7.164062-16 16v16c0 8.835938 7.164062 16 16 16h16c8.835938 0 16-7.164062 16-16v-16c0-8.835938-7.164062-16-16-16zm-16 32v-16h16v16zm0 0"/></svg>
+                <a href="/free-virtual-fitting-appointments/">Virtual</a>
+                <svg height="24px" width="24px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"> <g> <g> <path d="M503.467,443.733H8.533c-4.71,0-8.533,3.814-8.533,8.533V486.4c0,4.719,3.823,8.533,8.533,8.533h494.933 c4.719,0,8.533-3.814,8.533-8.533v-34.133C512,447.548,508.186,443.733,503.467,443.733z M494.933,477.867H17.067V460.8h477.867 V477.867z"/> </g> </g> <g> <g> <path d="M503.211,160.06l-25.6-102.4c-0.956-3.789-4.361-6.46-8.277-6.46H42.667c-3.917,0-7.33,2.671-8.277,6.46l-25.6,102.4 c-0.64,2.551-0.06,5.248,1.553,7.322s4.096,3.285,6.724,3.285h477.867c2.628,0,5.103-1.212,6.724-3.285 S503.851,162.611,503.211,160.06z M27.998,153.6l21.333-85.333h413.338l21.333,85.333H27.998z"/> </g> </g> <g> <g> <path d="M281.6,162.133V179.2c0,14.114-11.486,25.6-25.6,25.6s-25.6-11.486-25.6-25.6v-17.067h-17.067V179.2 c0,23.526,19.14,42.667,42.667,42.667c23.526,0,42.667-19.14,42.667-42.667v-17.067H281.6z"/> </g> </g> <g> <g> <path d="M213.333,162.133V179.2c0,14.114-11.486,25.6-25.6,25.6s-25.6-11.486-25.6-25.6v-17.067h-17.067V179.2 c0,23.526,19.14,42.667,42.667,42.667c23.526,0,42.667-19.14,42.667-42.667v-17.067H213.333z"/> </g> </g> <g> <g> <path d="M145.067,162.133V179.2c0,14.114-11.486,25.6-25.6,25.6s-25.6-11.486-25.6-25.6v-17.067H76.8V179.2 c0,23.526,19.14,42.667,42.667,42.667s42.667-19.14,42.667-42.667v-17.067H145.067z"/> </g> </g> <g> <g> <path d="M76.8,162.133V179.2c0,14.114-11.486,25.6-25.6,25.6s-25.6-11.486-25.6-25.6v-17.067H8.533V179.2 c0,23.526,19.14,42.667,42.667,42.667c23.526,0,42.667-19.14,42.667-42.667v-17.067H76.8z"/> </g> </g> <g> <g> <path d="M486.4,162.133V179.2c0,14.114-11.486,25.6-25.6,25.6c-14.114,0-25.6-11.486-25.6-25.6v-17.067h-17.067V179.2 c0,23.526,19.14,42.667,42.667,42.667c23.526,0,42.667-19.14,42.667-42.667v-17.067H486.4z"/> </g> </g> <g> <g> <path d="M418.133,162.133V179.2c0,14.114-11.486,25.6-25.6,25.6c-14.114,0-25.6-11.486-25.6-25.6v-17.067h-17.067V179.2 c0,23.526,19.14,42.667,42.667,42.667c23.526,0,42.667-19.14,42.667-42.667v-17.067H418.133z"/> </g> </g> <g> <g> <path d="M349.867,162.133V179.2c0,14.114-11.486,25.6-25.6,25.6s-25.6-11.486-25.6-25.6v-17.067H281.6V179.2 c0,23.526,19.14,42.667,42.667,42.667c23.526,0,42.667-19.14,42.667-42.667v-17.067H349.867z"/> </g> </g> <g> <g> <rect x="213.333" y="59.733" width="17.067" height="102.4"/> </g> </g> <g> <g> <rect x="281.6" y="59.733" width="17.067" height="102.4"/> </g> </g> <g> <g> <rect x="106.498" y="102.415" transform="matrix(0.083 -0.9965 0.9965 0.083 34.1971 259.0603)" width="102.736" height="17.066"/> </g> </g> <g> <g> <rect x="41.963" y="102.403" transform="matrix(0.1646 -0.9864 0.9864 0.1646 -31.0012 185.2705)" width="103.821" height="17.067"/> </g> </g> <g> <g> <rect x="345.581" y="59.566" transform="matrix(0.9965 -0.083 0.083 0.9965 -7.986 29.7754)" width="17.057" height="102.736"/> </g> </g> <g> <g> <rect x="409.607" y="59.021" transform="matrix(0.9864 -0.1644 0.1644 0.9864 -12.5476 70.2519)" width="17.067" height="103.817"/> </g> </g> <g> <g> <path d="M469.333,17.067H42.667c-4.71,0-8.533,3.823-8.533,8.533v34.133H51.2v-25.6h409.6v25.6h17.067V25.6 C477.867,20.89,474.052,17.067,469.333,17.067z"/> </g> </g> <g> <g> <rect x="34.133" y="213.333" width="17.067" height="230.4"/> </g> </g> <g> <g> <rect x="460.8" y="213.333" width="17.067" height="238.933"/> </g> </g> <g> <g> <path d="M315.733,256H76.8c-4.71,0-8.533,3.814-8.533,8.533v136.533c0,4.719,3.823,8.533,8.533,8.533h238.933 c4.719,0,8.533-3.814,8.533-8.533V264.533C324.267,259.814,320.452,256,315.733,256z M307.2,392.533H85.333V273.067H307.2V392.533 z"/> </g> </g> <g> <g> <path d="M435.2,256h-85.333c-4.719,0-8.533,3.814-8.533,8.533v187.733c0,4.719,3.814,8.533,8.533,8.533H435.2 c4.719,0,8.533-3.814,8.533-8.533V264.533C443.733,259.814,439.919,256,435.2,256z M426.667,443.733H358.4V273.067h68.267V443.733 z"/> </g> </g> <g> <g> <rect x="120.962" y="307.197" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -180.7566 195.0755)" width="48.273" height="17.067"/> </g> </g> <g> <g> <rect x="129.185" y="319.973" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -178.5461 225.965)" width="108.611" height="17.067"/> </g> </g> <g> <g> <rect x="197.719" y="341.338" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -182.4167 259.3502)" width="48.273" height="17.067"/> </g> </g> </svg>
+                <a href="/in-store-fitting-appointments/">In-store</a>
+            </div>
+        </div>
+    </div>
+  
+</header>

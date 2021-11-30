@@ -1,0 +1,31 @@
+<ul class="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">
+    {{#each breadcrumbs}}
+        <li class="breadcrumb {{#if @last}}is-active{{#if ../../page_type '===' 'product'}} breadcrumb--product{{/if}}{{/if}}" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            {{#if @last}}
+                <meta itemprop="item" content="{{url}}">
+                <span class="breadcrumb-label" itemprop="name">
+                    {{#if ../../page_type '===' 'product'}}
+                        <span class="default-title {{#if ../../../product.custom_fields}}{{#each ../../../../product.custom_fields}}{{#if name '===' 'custom-title' }}hide{{/if}}{{/each}}{{/if}}">{{../name}}</span>
+                        {{#if ../../../product.custom_fields}}
+                            {{#each ../../../../product.custom_fields}}
+                                {{#if name '===' 'custom-title' }}
+                                    <span class="custom-title">{{{value}}}</span>
+                                {{/if}}
+                            {{/each}}
+                        {{/if}}
+                    {{else}}
+                        {{name}}
+                    {{/if}}
+                </span>
+            {{else}}
+                {{#if url}}
+                    <a href="{{url}}" class="breadcrumb-label" itemprop="item"><span itemprop="name">{{name}}</span></a>
+                {{else}}
+                    <meta itemprop="item" content="{{url}}">
+                    <span class="breadcrumb-label" itemprop="name">{{name}}</span>
+                {{/if}}
+            {{/if}}
+            <meta itemprop="position" content="{{@index}}" />
+        </li>
+    {{/each}}
+</ul>

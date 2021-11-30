@@ -1,0 +1,165 @@
+---
+products:
+    new:
+        limit: {{theme_settings.homepage_new_products_count}}
+    featured:
+        limit: {{theme_settings.homepage_featured_products_count}}
+    top_sellers:
+        limit: {{theme_settings.homepage_top_products_count}}
+carousel: {{theme_settings.homepage_show_carousel}}
+blog:
+    recent_posts:
+        limit: {{theme_settings.homepage_blog_posts_count}}
+---
+{{inject "enableSwatches" theme_settings.show_swatches_on_grid}}
+{{inject "enableSizes" theme_settings.show_sizes_on_grid}}
+{{inject "enableImageHoverSwitcher" theme_settings.enable_image_hover_switcher}}
+
+{{#partial "hero"}}
+    
+    {{#if carousel}}
+        {{#or (if theme_settings.carousel-type '===' 'storyboard') theme_settings.conversion_optimization_mode}}
+            {{> components/f/hero/storyboard-top}}
+        {{else}}
+            {{> components/f/hero/carousel arrows=theme_settings.homepage_show_carousel_arrows}}
+        {{/or}}
+    {{/if}}
+    {{{snippet 'home_content'}}}
+    <h1 class="page-heading"><span>{{lang 'home.title'}}</span></h1>
+{{/partial}}
+
+{{#partial "page"}}
+
+    {{#each shipping_messages}}
+        {{> components/common/alert-info message}}
+    {{/each}}
+
+<div class="main full">
+
+    <section class="content">
+        <ul class="featuredCategories featuredCategoriesColumns--4">
+            <li class="featuredCategory">
+                <a href="/bras/best-selling/">
+                    <div class="featuredCategory-image"><img class="lazyload" data-sizes="(max-width: 1350px) 288px, 500px" src="https://cdn11.bigcommerce.com/s-erjiavjjgd/stencil/0b9c63e0-b151-0137-3fa3-0242ac110008/e/53741f40-bdca-0137-3117-0242ac110025/img/loading.svg" data-src="https://cdn11.bigcommerce.com/s-erjiavjjgd/product_images/uploaded_images/fitters-favourites-resized6.jpg" 
+                        data-srcset="
+                        https://cdn11.bigcommerce.com/s-erjiavjjgd/product_images/uploaded_images/fitters-favourites.png 500w, 
+                        https://cdn11.bigcommerce.com/s-erjiavjjgd/product_images/uploaded_images/fitters-favourites-resized6.jpg 288w"
+                        sizes="(max-width: 1350px) 288px, 500px"
+                        alt="Fitter’s Favourites" width="500px" height="500px"></div>
+                    <div class="featuredCategory-name">Fitter’s Favourites</div>
+                </a>
+            </li>
+            <li class="featuredCategory">
+                <a href="/maternity/">
+                    <div class="featuredCategory-image"><img class="lazyload" data-sizes="(max-width: 1350px) 288px, 500px" src="https://cdn11.bigcommerce.com/s-erjiavjjgd/stencil/0b9c63e0-b151-0137-3fa3-0242ac110008/e/53741f40-bdca-0137-3117-0242ac110025/img/loading.svg" data-src="https://cdn11.bigcommerce.com/s-erjiavjjgd/product_images/uploaded_images/maternity-resized6.jpg" 
+                        data-srcset="
+                        https://cdn11.bigcommerce.com/s-erjiavjjgd/product_images/uploaded_images/maternity.png 500w, 
+                        https://cdn11.bigcommerce.com/s-erjiavjjgd/product_images/uploaded_images/maternity-resized6.jpg 288w"
+                        sizes="(max-width: 1350px) 288px, 500px"
+                        alt="Maternity" width="500px" height="500px"></div>
+                    <div class="featuredCategory-name">Maternity</div>
+                </a>
+            </li>
+            <li class="featuredCategory">
+                <a href="/sport/">
+                    <div class="featuredCategory-image"><img class="lazyload" data-sizes="(max-width: 1350px) 288px, 440px" src="https://cdn11.bigcommerce.com/s-erjiavjjgd/stencil/0b9c63e0-b151-0137-3fa3-0242ac110008/e/53741f40-bdca-0137-3117-0242ac110025/img/loading.svg" data-src="https://cdn11.bigcommerce.com/s-erjiavjjgd/product_images/uploaded_images/999999999.20200913234529867.999999999.20200913234529867ffdmx.jpeg"
+                        data-srcset="
+                        https://cdn11.bigcommerce.com/s-erjiavjjgd/product_images/uploaded_images/999999999.20200913234529867.999999999.20200913234529867ffdmx.jpeg 440w, 
+                        https://cdn11.bigcommerce.com/s-erjiavjjgd/product_images/uploaded_images/999999999.20200913234529867.999999999.20200913234529867ffdmx-resized6.jpg 288w"
+                        sizes="(max-width: 1350px) 288px, 440px"
+                    alt="Sportswear" width="500px" height="500px"></div>
+                    <div class="featuredCategory-name">Sportswear</div>
+                </a>
+            </li>
+            <li class="featuredCategory">
+                <a href="/swim/">
+                    <div class="featuredCategory-image"><img class="lazyload" data-sizes="(max-width: 1350px) 288px, 440px" src="https://cdn11.bigcommerce.com/s-erjiavjjgd/stencil/0b9c63e0-b151-0137-3fa3-0242ac110008/e/53741f40-bdca-0137-3117-0242ac110025/img/loading.svg" data-src="https://cdn11.bigcommerce.com/s-erjiavjjgd/product_images/uploaded_images/999999999.20200913234529772.999999999.20200913234529772nwvll-resized6.jpg" 
+                        data-srcset="
+                        https://cdn11.bigcommerce.com/s-erjiavjjgd/product_images/uploaded_images/999999999.20200913234529772.999999999.20200913234529772nwvll.jpeg 440w, 
+                        https://cdn11.bigcommerce.com/s-erjiavjjgd/product_images/uploaded_images/999999999.20200913234529772.999999999.20200913234529772nwvll-resized6.jpg 288w"
+                        sizes="(max-width: 1350px) 288px, 440px"
+                        alt="Swimwear" width="500px" height="500px"></div>
+                    <div class="featuredCategory-name">Swimwear</div>
+                </a>
+            </li>
+        </ul>
+    </section>
+
+    
+    
+    {{#if theme_settings.show_homepage_featured_categories}}
+        {{> components/f/featured-categories/featured columns=theme_settings.featured_category_columns}}
+    {{/if}}
+
+    {{#if products.new}}
+        {{> components/products/new products=products.new columns=theme_settings.homepage_new_products_column_count show_wishlist=settings.show_wishlist show_rating=settings.show_product_rating}}
+    {{/if}}
+
+    {{#and carousel (if theme_settings.carousel-type '===' 'storyboard')}}
+        {{> components/f/hero/storyboard-middle}}
+    {{/and}}
+
+    {{#if banners.top}}
+        {{#if settings.data_tag_enabled}}
+            <div class="banners homepage" data-banner-location="top">
+                {{#each (limit banners.top_metadata 1)}}
+                    <div class="banner" data-event-type="promotion" data-entity-id="{{this.id}}" data-name="{{this.banner-name}}" data-position="{{this.location}}" data-name="{{this.banner-name}}">
+                        <div data-event-type="promotion-click">
+                            {{{this.content}}}
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        {{else}}
+            <div class="banners homepage" data-banner-location="top">
+                <div class="banner">
+                    {{{limit banners.top 1}}}
+                </div>
+            </div>
+        {{/if}}
+    {{/if}}
+
+    {{#if products.featured}}
+        {{> components/products/featured products=products.featured columns=theme_settings.homepage_featured_products_column_count show_wishlist=settings.show_wishlist show_rating=settings.show_product_rating}}
+    {{/if}}
+
+    {{#and carousel (if theme_settings.carousel-type '===' 'storyboard')}}
+        {{> components/f/hero/storyboard-bottom}}
+    {{/and}}
+
+    {{#if banners.bottom}}
+        {{#if settings.data_tag_enabled}}
+            <div class="banners homepage" data-banner-location="bottom">
+                {{#each (limit banners.bottom_metadata 1)}}
+                    <div class="banner" data-event-type="promotion" data-entity-id="{{this.id}}" data-name="{{this.banner-name}}" data-position="{{this.location}}" data-name="{{this.banner-name}}">
+                        <div data-event-type="promotion-click">
+                            {{{this.content}}}
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        {{else}}
+            <div class="banners homepage" data-banner-location="bottom">
+                <div class="banner">
+                    {{{limit banners.bottom 1}}}
+                </div>
+            </div>
+        {{/if}}
+    {{/if}}
+
+    {{#if products.top_sellers}}
+        {{> components/products/top products=products.top_sellers columns=theme_settings.homepage_top_products_column_count show_wishlist=settings.show_wishlist show_rating=settings.show_product_rating}}
+    {{/if}}
+
+    
+        {{> components/f/blog/home-articles-list posts=blog.recent_posts columns=theme_settings.homepage_blog_posts_column_count theme_settings=theme_settings}}
+   
+    
+
+    {{#if theme_settings.enable_elfsight_instagram_feed}}
+        <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+        <div class="{{theme_settings.elfsight_instagram_app_code}}" loading="lazy"></div>
+    {{/if}}
+</div>
+{{/partial}}
+{{> layout/base}}

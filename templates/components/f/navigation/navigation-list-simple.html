@@ -1,0 +1,95 @@
+{{#if children}}
+    <a tab1 class="navPages-action navPages-action-depth-max has-subMenu is-root" href="{{url}}" data-collapsible="navPages-{{#if content}}p{{/if}}{{id}}">
+        {{name}} x<i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use xlink:href="#icon-chevron-down" /></svg></i>
+    </a>
+    {{> components/f/navigation/navigation-dropdown hide_view_all=hide_view_all content=content}}
+{{else}}
+    {{#if name '===' 'Brands'}}
+    <li class="navPages-item" style="display:none" >
+        <a class="navPages-action navPages-action-depth-max has-subMenu is-root" href="/brands/" data-collapsible="navPages-11" aria-controls="" aria-expanded="false">
+            Brands <i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use xlink:href="#icon-chevron-down"></use></svg></i>
+        </a>
+        <div class="navPage-subMenu" id="navPages-11" aria-hidden="true" tabindex="-1">
+            <ul class="navPage-subMenu-list">
+                <li class="navPage-subMenu-item">
+                    <a class="navPage-subMenu-action navPages-action" href="/brands/">All Brands</a>
+                </li>
+                <li class="navPage-subMenu-item">
+                    <a class="navPage-subMenu-action navPages-action" href="/brands/goddess/">Goddess</a>
+                </li>
+                <li class="navPage-subMenu-item">
+                    <a class="navPage-subMenu-action navPages-action" href="/brands/artesands-swimwear/">Artesands</a>
+                </li>
+                <li class="navPage-subMenu-item">
+                    <a class="navPage-subMenu-action navPages-action" href="/brands/hot-milk/">Hotmilk</a>
+                </li>                     
+                <li class="navPage-subMenu-item">
+                    <a class="navPage-subMenu-action navPages-action" href="/brands/b-tempt-d/">B'Tempted</a>
+                </li>
+                 <li class="navPage-subMenu-item">
+                    <a class="navPage-subMenu-action navPages-action" href="/brands/marlies-dekkers/">Marlies Dekkers</a>
+                </li>
+                  <li class="navPage-subMenu-item">
+                    <a class="navPage-subMenu-action navPages-action" href="/brands/cake-maternity/">Cake Maternity</a>
+                </li>
+                <li class="navPage-subMenu-item">
+                    <a class="navPage-subMenu-action navPages-action" href="/brands/miraclesuit-swimwear/">Miraclesuit Swim</a>
+                </li>
+               <li class="navPage-subMenu-item">
+                    <a class="navPage-subMenu-action navPages-action" href="/brands/curvy-kate/">CurvyKate</a>
+                </li>
+                <li class="navPage-subMenu-item">
+                    <a class="navPage-subMenu-action navPages-action" href="/brands/panache/">Panache</a>
+                </li>
+                <li class="navPage-subMenu-item">
+                    <a class="navPage-subMenu-action navPages-action" href="/brands/elomi/">Elomi</a>
+                </li>
+                <li class="navPage-subMenu-item">
+                    <a class="navPage-subMenu-action navPages-action" href="/brands/panache-sport/">Panache Sport</a>
+                </li>
+                 <li class="navPage-subMenu-item">
+                    <a class="navPage-subMenu-action navPages-action" href="/brands/elomi-swimwear/">Elomi Swim</a>
+                </li>
+                <li class="navPage-subMenu-item">
+                    <a class="navPage-subMenu-action navPages-action" href="/brands/primadonna/">Prima Donna</a>
+                </li>
+               <li class="navPage-subMenu-item">
+                    <a class="navPage-subMenu-action navPages-action" href="/brands/fantasie/">Fantasie</a>
+                </li>
+                <li class="navPage-subMenu-item">
+                    <a class="navPage-subMenu-action navPages-action" href="/brands/primadonna-swimwear/">PrimaDonna Swim</a>
+                </li>
+                <li class="navPage-subMenu-item">
+                    <a class="navPage-subMenu-action navPages-action" href="/brands/fantasie-swimwear/">Fantasie Swim</a>
+                </li>  
+                 <li class="navPage-subMenu-item">
+                    <a class="navPage-subMenu-action navPages-action" href="/brands/sealevel/">Sealevel</a>
+                </li>
+               <li class="navPage-subMenu-item">
+                    <a class="navPage-subMenu-action navPages-action" href="/brands/freya/">Freya</a>
+                </li>
+               <li class="navPage-subMenu-item">
+                    <a class="navPage-subMenu-action navPages-action" href="/brands/scantilly/">Scantilly</a>
+                </li>
+                <li class="navPage-subMenu-item">
+                    <a class="navPage-subMenu-action navPages-action" href="/brands/freya-active/">Freya Active</a>
+                </li>
+                <li class="navPage-subMenu-item">
+                    <a class="navPage-subMenu-action navPages-action" href="/brands/spanx/">Spanx</a>
+                </li>
+                <li class="navPage-subMenu-item">
+                    <a class="navPage-subMenu-action navPages-action" href="/brands/freya-swimwear/">Freya Swim</a>
+                </li>
+                 <li class="navPage-subMenu-item">
+                    <a class="navPage-subMenu-action navPages-action" href="/brands/triumph/">Triumph</a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </li>
+    {{else}}
+        <a class="navPages-action" href="{{url}}">{{name}}</a>
+    {{/if}}
+{{/if}}
+  

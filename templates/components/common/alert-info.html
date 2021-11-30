@@ -1,0 +1,19 @@
+{{#if this '===' 'You have qualified for free shipping'}}
+    <div class="alertBox alertBox--info alertBox--success {{#contains (toLowerCase this) 'free shipping'}}alert-free-shipping{{/contains}}">
+{{else}}
+    <div class="alertBox alertBox--info {{#contains (toLowerCase this) 'free shipping'}}alert-free-shipping{{/contains}}" >
+{{/if}}
+
+    <div class="alertBox-column alertBox-icon">
+        <i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-alert" /></svg></i>
+    </div>
+    <p class="alertBox-column alertBox-message">
+        <span>{{{this}}}</span>
+    </p>
+</div>
+
+{{#if cart.show_multiple_address_shipping}}
+                            <a class="checkoutMultiple" href="{{urls.checkout.multiple_address}}">
+                                {{lang 'cart.preview.checkout_multiple'}}
+                            </a>
+                        {{/if}}

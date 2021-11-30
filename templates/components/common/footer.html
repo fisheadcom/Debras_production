@@ -1,0 +1,159 @@
+{{#unless (if template '===' 'pages/home')}}
+    {{#if banners.bottom}}
+        {{#if settings.data_tag_enabled}}
+            <div class="banners banner-bottom" data-banner-location="bottom">
+                {{#each (limit banners.bottom_metadata 1)}}
+                    <div class="banner" data-event-type="promotion" data-entity-id="{{this.id}}" data-name="{{this.banner-name}}" data-position="{{this.location}}" data-name="{{this.banner-name}}">
+                        <div data-event-type="promotion-click">
+                            {{{this.content}}}
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        {{else}}
+            <div class="banners banner-bottom" data-banner-location="bottom">
+                <div class="banner">
+                    {{{limit banners.bottom 1}}}
+                </div>
+            </div>
+        {{/if}}
+    {{/if}}
+{{/unless}}
+<footer class="footer" role="contentinfo">
+    <div class="container">
+        <section class="footer-info">
+            <div class="footer-info-col footer-info-col--small" data-section-type="footer-pages">
+                <div class="footer-info-heading">Debra's</div>
+                <ul class="footer-info-list">
+                    <li><a href="/about-us/">About Us</a></li>
+                    <li><a href="/contact-us/">Store Location</a></li>
+                    <li><a href="/gift-vouchers/">Gift Vouchers</a></li>
+                    <li><a href="/covid-19/">COVID-19</a></li>
+                    <li><a href="/privacy-policy/">Privacy Policy</a></li>
+                    <li><a href="/terms-and-conditions/">Terms & Conditions</a></li>
+                    <li><a href="/our-partners/">Partners</a></li>
+                </ul>
+            </div>
+        
+            <div class="footer-info-col footer-info-col--small" data-section-type="footer-pages">
+                <div class="footer-info-heading">Help & Support</div>
+                <ul class="footer-info-list">
+                    <li><a href="/contact-us/">Contact Us</a></li>
+                    <li><a href="/frequently-asked-questions/">FAQ</a></li>
+                    <li><a href="/delivery-shipping/">Delivery & Shipping</a></li>
+                    <li><a href="/returns-exchanges/">Returns & Exchanges</a></li>
+                    <li><a href="/in-store-fitting-appointments/">In-store Fittings</a></li> 
+                    <li><a href="/free-virtual-fitting-appointments/">Virtual Fittings</a></li>
+                    <li><a href="/fitting-advice/">Fitting Guide</a></li>
+                    <li><a href="/articles/bra-care-guide/">Care Instructions</a></li>
+                </ul>
+            </div>
+            <div class="footer-info-col footer-info-col--small" data-section-type="footer-pages">
+                <div class="footer-info-heading">Fitting Appointments</div>
+                <ul class="footer-info-list">
+                    <li><a href="/in-store-fitting-appointments/">In-store</a></li>
+                    <li><a href="/free-virtual-fitting-appointments/">Virtual</a></li>
+                </ul>
+            </div>
+            <div class="footer-info-col footer-info-col--small" data-section-type="footer-pages">
+                <div class="footer-info-heading">Follow Us</div>
+                <ul class="footer-info-list">
+                    <li><a href="https://www.facebook.com/DeBrasforeveryBODY" target="_blank"><i class="icon icon--facebook"><svg><use xlink:href="#icon-facebook"></use></svg></i>Facebook</a></li>
+                    <li><a href="https://www.instagram.com/debrasaus/" target="_blank"><i class="icon icon--instagram"><svg><use xlink:href="#icon-instagram"></use></svg></i>Instagram</a></li>
+                    <li><a href="https://www.pinterest.com/debrasaus/" target="_blank"><i class="icon icon--pinterest"><svg><use xlink:href="#icon-pinterest"></use></svg></i>Pinterest</a></li>
+                    <li><a href="https://www.youtube.com/channel/UC6USMaFurCjYANfgPf35SuQ" target="_blank"><i class="icon icon--youtube"><svg><use xlink:href="#icon-youtube"></use></svg></i>Youtube</a></li>
+                </ul>
+            </div>
+        
+            <div class="footer-info-col footer-info-col--small" data-section-type="footer-pages">
+                <div class="footer-info-heading">Popular Articles</div>
+                <ul class="footer-info-list">
+                    <li><a href="/articles/history-of-bras/">The History Of Bras</a></li>
+                    <li><a href="/articles/my-first-bra/">Buying Your First Bra</a></li>
+                    <li><a href="/articles/how-are-bras-made/">How Bras Are Made</a></li>
+                    <li><a href="/prosthesis-fittings">Prosthesis Fittings</a></li>
+                    <li><a href="/articles/best-bras-for-back-pain/">Best Bras For Back Pain</a></li>
+                    <li><a href="/articles/your-boobs-as-you-age/">Your Boobs As You Age</a></li>
+                    <li><a class="button view-all-articles" href="/articles/">See Full Articles</a></li>
+                </ul>
+            </div>
+        
+            <div class="footer-info-col footer-info-col--large" data-section-type="newsletterSubscription">
+                <div class="footer-newsletter-info">
+                    <div class="footer-info-heading">Want the latest deals?</div>
+                    <p>Sign up to receive our newsletter and be the first to see our new arrivals!</p>
+                </div>
+                <div class="footer-newsletter-wrapper">
+                    <form class="form" action="/subscribe.php" method="post">
+                        <fieldset class="form-fieldset">
+                            <input type="hidden" name="action" value="subscribe">
+                            <input type="hidden" name="nl_first_name" value="bc">
+                            <input type="hidden" name="check" value="1">
+                            <div class="form-field">
+                                <label class="form-label is-srOnly" for="nl_email">Email Address</label>
+                                <div class="form-prefixPostfix wrap">
+                                    <input class="form-input" id="nl_email" name="nl_email" type="email" value=""
+                                        placeholder="Your email address">
+                                </div>
+                                <div class="form-prefixPostfix wrap">
+                                    <input class="form-input" id="nl_size" name="nl_size" type="text" value=""
+                                        placeholder="Bra size">
+                                </div>
+                                <div class="form-prefixPostfix wrap">
+                                    <input class="button button--primary form-prefixPostfix-button--postfix" type="submit"
+                                        value="Subscribe">
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </section>
+        {{#if theme_settings.geotrust_ssl_common_name}}
+            <div class="footer-geotrust-ssl-seal">
+                {{> components/common/geotrust-ssl-seal}}
+            </div>
+        {{/if}}
+        <section>
+            <div class="footer-info-col footer-info-col--medium">
+                {{#if settings.address}}
+                <div class="footer-copyright">
+                    <!-- <address>{{settings.address}}</address> -->
+                    {{#if settings.phone_number}}
+                        <a class="footer-phone" href="tel:{{settings.phone_number}}">{{lang 'header.need_help'}} {{settings.phone_number}}</a>
+                    {{/if}}
+                </div>
+                {{/if}}
+                {{#if theme_settings.show_copyright_footer}}
+                    <div class="footer-copyright">
+                        <p class="powered-by">&copy; {{moment format="YYYY"}} {{settings.store_name}} </p>
+                    </div>
+                {{/if}}
+                {{#or theme_settings.show_designed_by theme_settings.show_powered_by}}
+                    <div class="footer-copyright">
+                        <p class="powered-by">
+                            {{#if theme_settings.show_designed_by}}
+                                <span>Designed by <a href="https://www.flairconsultancy.com?utm_source=store&amp;utm_medium=designedbyFlair" rel="nofollow" target="_blank">Flair</a>.</span>
+                            {{/if}}
+                            {{#if theme_settings.show_powered_by}}
+                                <span>Powered by <a href="https://www.bigcommerce.com?utm_source=merchant&amp;utm_medium=poweredbyBC" rel="nofollow" target="_blank">BigCommerce</a>.</span>
+                            {{/if}}
+                        </p>
+                    </div>
+                {{/or}}
+            </div>
+            <div class="footer-info-col footer-info-col--large">
+                {{#if theme_settings.social_icon_placement_bottom}}
+                    <div class="footer-info-heading">{{lang 'social.connect'}}</div>
+                    {{> components/common/social-links}}
+                {{/if}}
+                {{#if theme_settings.show_payment_methods}}
+                    {{> components/f/footer/payment-icons}}
+                {{/if}}
+            </div>
+        </section>
+    </div>
+</footer>
+{{#if theme_settings.show_newsletter_popup}}
+    {{> components/f/newsletter-popup/popup}}
+{{/if}}

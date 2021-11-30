@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html class="no-js" lang="{{ locale_name }}">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title>{{head.title}}</title>
+        
+        {{{ resourceHints }}}
+        {{{ head.meta_tags }}}
+        <meta name="facebook-domain-verification" content="b1ee5l5q6nhscb5atc3zg9j8v8ny7i" />
+        
+        {{#if this.template '!=' 'pages/product'}}
+            <meta property="og:title" content="{{head.title}}">
+            <meta property="og:site_name" content="DeBra’s">
+
+            {{#if this.template '==' 'pages/category'}}
+                <meta property="og:url" content="{{category.url}}">
+            {{else if this.template '==' 'pages/home'}}
+                <meta property="og:url" content="https://www.debras.com.au">
+            {{else if this.template '==' 'pages/blog'}}
+                <meta property="og:url" content="{{blog.url}}">
+            {{else if this.template '==' 'pages/blog-post'}}
+                <meta property="og:url" content="{{this.blog.post.url}}">
+            {{else if this.template '==' 'pages/page'}}
+                {{#each pages as |somepage|}}
+                    {{#if somepage.name '==' ../page.title}}
+                        <meta property="og:url" content="{{somepage.url}}">
+                    {{/if}}
+                {{/each}}
+            {{else}}
+                <meta property="og:url" content="https://www.debras.com.au">
+            {{/if}}
+            
+            {{#if category.description}}
+                <meta property="og:description" content="{{sanitize category.description}}">
+            {{else}}
+                <meta property="og:description" content="DeBra’s stock a wide range of bras, lingerie, maternity & swimwear available online and in-store. Over 15years experience in the industry - visit us today!">
+            {{/if}}
+            <meta property="og:type" content="website">
+            
+            {{#if category.image}}
+                <meta property="og:image" content="{{getImage category.image 'zoom_size'}}">
+            {{else}}
+                <meta property="og:image" content="https://cdn11.bigcommerce.com/s-erjiavjjgd/product_images/uploaded_images/home-page-imagef-or-new-site.png?t=1568187696&_ga=2.159817022.2098699151.1568033938-1022632865.1568033938">
+            {{/if}}
+            
+            {{#or (if this.template '==' 'pages/account/wishlists') (if this.template '==' 'pages/auth/login')}}
+                <meta name="robots" content="noindex, nofollow" />
+            {{/or}}
+        
+        
+            {{#if this.template '==' 'pages/category'}}
+                {{#withLast currency_selector.currencies}}
+                    {{#withLast (split this.switch_url "?")}}
+                        {{#if this '!==' 'setCurrencyId=1' }}
+                            <meta name="robots" content="noindex, follow" />
+                        {{/if}}
+                    {{/withLast}}
+                {{/withLast}}
+            {{/if}}
+            
+            
+        {{/if}}
+        
+        {{{ head.config }}}
+        {{#block "head"}} {{/block}}
+
+        <link href="{{ head.favicon }}" rel="shortcut icon">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="ft-name" content="{{theme_settings.n}}">
+        <meta name="ft-version" content="{{theme_settings.v}}">
+        <meta name="ft-edition" content="{{theme_settings.e}}">
+
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-5398BF');</script>
+        <!-- End Google Tag Manager -->
+
+        <script>
+            // Change document class from no-js to js so we can detect this in css
+            document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+        </script>
+
+        
+        {{{stylesheet '/assets/css/theme.css'}}}
+
+        {{{head.scripts}}}
+        {{{head.rsslinks}}}
+
+        {{inject 'themeSettings' theme_settings}}
+        {{inject 'genericError' (lang 'common.generic_error')}}
+        {{inject 'maintenanceMode' settings.maintenance}}
+        {{inject 'urls' urls}}
+        {{inject 'secureBaseUrl' settings.secure_base_url}}
+        {{inject 'template' template}}
+        {{inject 'enableAnimations' theme_settings.enable_animations}}
+        {{{snippet 'htmlhead'}}}
+    </head>
+    <body{{#or theme_settings.show_global_banner theme_settings.enable_gradients}} class="{{#if theme_settings.show_global_banner}}has-globalBanner{{/if}}{{#if theme_settings.enable_gradients}} gradient{{/if}}"{{/or}}>
+        {{{snippet 'header'}}}
+        
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5398BF"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+
+        <svg data-src="{{cdn 'img/icon-sprite.svg'}}" class="icons-svg-sprite"></svg>
+
+        {{#and settings.privacy_cookie settings.is_eu_ip_address}}
+            {{> components/common/cookie}}
+        {{/and}}
+
+        {{> components/common/header }}
+        {{> components/common/body }}
+        {{#if theme_settings.enable_simple_footer}}
+            {{> components/f/footer/simple-footer }}
+        {{else}}
+            {{> components/common/footer }}
+        {{/if}}
+
+        <script>window.__webpack_public_path__ = "{{cdn 'assets/dist/'}}";</script>
+        <script src="{{cdn 'assets/dist/theme-bundle.main.js'}}"></script>
+
+        <script>
+            // Exported in app.js
+            window.stencilBootstrap("{{page_type}}", {{jsContext}}).load();
+        </script>
+        <style>@import 'https://fonts.googleapis.com/css?family=Montserrat:400,700|Noto+Serif:400,400i&display=swap';</style>
+        {{{footer.scripts}}}
+        {{{snippet 'footer'}}}
+    </body>
+</html>

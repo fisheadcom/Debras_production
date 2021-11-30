@@ -1,0 +1,123 @@
+<div class="modal-header">
+    <h2 class="modal-header-title">
+        {{lang 'cart.added_to_cart.title'}}
+    </h2>
+    <p class="card-text-quantity">{{lang 'cart.added_to_cart.what_next' num_products=cart.quantity}}</p>
+</div>
+
+<div class="modal-body">
+    <div class="previewCart">
+        
+        <section class="productView">
+            {{#with cart.added_item}}
+                <figure class="productView-image">
+                    <div class="productView-img-container">
+                        <img class="productView-image--cart lazyload"
+                            data-sizes="auto"
+                            src="{{cdn 'img/loading.svg'}}"
+                            data-src="{{getImage image 'product_size' (cdn ../theme_settings.default_image_product)}}"
+                            alt="{{image.alt}}"
+                            title="{{image.alt}}" />
+                    </div>
+                </figure>
+
+                <div class="productView-details">
+                    <h4 class="productView-title">
+                        <span class="default-title {{#if custom_fields}}{{#each custom_fields}}{{#if name '===' 'custom-title' }}hide{{/if}}{{/each}}{{/if}}">{{name}}</span>
+                        {{#if custom_fields}}          
+                            {{#each custom_fields}}
+                                {{#if name '===' 'custom-title' }}
+                                    <span class="custom-title">{{{value}}}</span>
+                                {{/if}}
+                            {{/each}}
+                        {{/if}}
+                    </h4>
+
+                    <div class="productView-price">
+                        {{#or ../customer (if ../theme_settings.restrict_to_login '!==' true)}}
+                            {{price.formatted}}
+                        {{else}}
+                            {{> components/common/login-for-pricing}}
+                        {{/or}}
+                    </div>
+
+                    {{#each configurable_fields}}
+                        <dl class="productView-info">
+                            <dt class="productView-info-name">
+                                {{name}}:
+                            </dt>
+                            {{#if is_file}}
+                                <a href="/viewfile.php?prodfield={{../id}}&cartitem={{../../id}}">{{value}}</a>
+                            {{else}}
+                                {{value}}
+                            {{/if}}
+                        </dl>
+                    {{/each}}
+
+                    {{#each options}}
+                        <dl class="productView-info">
+                            <dt class="productView-info-name">
+                                {{name}}:
+                            </dt>
+                            <dd class="productView-info-value">
+                                {{value}}
+                            </dd>
+                        </dl>
+                    {{/each}}
+
+                    <dl class="productView-info">
+                        <dt class="productView-info-name">
+                            {{lang 'cart.added_to_cart.qty'}}
+                        </dt>
+                        <dd class="productView-info-value">
+                            {{quantity}}
+                        </dd>
+                    </dl>
+
+                </div>
+            {{/with}}
+            <div class="shipping-message">
+                {{#each cart.status_messages}}
+                    {{> components/common/alert-info message}}
+                {{/each}}
+            </div>
+        </section>
+
+        <section class="previewCartCheckout">
+            <div class="total-row">
+                <span class="total-qty">
+                    {{lang 'cart.added_to_cart.total' num_products=cart.quantity}}
+                </span>
+                <span class="total-price">
+                    {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                        {{cart.sub_total.formatted}}
+                    {{else}}
+                        {{> components/common/login-for-pricing}}
+                    {{/or}}
+                </span>
+            </div>
+
+            {{#if cart.show_primary_checkout_button}}
+                <a href="{{urls.checkout.single_address}}" class="button button--primary">
+                    {{lang 'cart.added_to_cart.proceed_to_checkout'}}
+                </a>
+            {{/if}}
+
+            {{#if cart.show_multiple_address_shipping}}
+                <div class="previewCartAction-checkoutMultiple">
+                    <a href="{{urls.checkout.multiple_address}}">
+                        {{lang 'cart.preview.checkout_multiple'}}
+                    </a>
+                </div>
+            {{/if}}
+
+            <a href="#" class="button button--primary" role="button" data-reveal-close>
+                {{lang 'cart.added_to_cart.continue_shopping'}}
+            </a>
+
+            <a href="{{urls.cart}}" class="button">
+                {{lang 'cart.added_to_cart.view_or_edit_cart'}}
+            </a>
+        </section>
+    </div>
+</div>
