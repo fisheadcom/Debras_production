@@ -1375,3 +1375,12 @@ body ul.breadcrumbs {
 }
 
 /* FAQs with accordion - END */
+
+.shop-hours{
+    @include breakpoint("medium"){
+        display: flex;
+        .shop-hours-inn{
+            width: 50%;
+        }
+    }
+}
