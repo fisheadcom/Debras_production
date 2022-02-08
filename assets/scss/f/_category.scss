@@ -45,3 +45,13 @@
         }
     }
 }
+.brand-subtitle{
+    margin: 0;
+    padding: 1rem 0;
+    font-size: 12px;
+    @include breakpoint("medium"){
+        padding: 2rem 0;
+        margin: 0;
+        font-size: 18px;
+    }
+}

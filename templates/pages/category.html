@@ -142,7 +142,11 @@ category:
 				{{#each (sortBy category.subcategories "name")}}
 				<li class="navList-item">
 					<a class="navList-action" href="{{url}}" alt="{{name}}" title="{{name}}">
+                        {{#if image}}
 					<img src="{{getImage image 'category_card_size'}}" alt="{{name}}">
+                        {{else}}
+                        <h3 class="brand-subtitle">{{name}}</h3>
+                        {{/if}}
 					</a>
 				</li>
 				{{/each}}
