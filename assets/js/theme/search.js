@@ -9,6 +9,7 @@ import 'jstree';
 import nod from './common/nod';
 import swatchPreview from './f/swatch-preview';
 import sizePreview from './f/size-preview';
+import imageHover from './f/image-hover';
 
 export default class Search extends CatalogPage {
     formatCategoryTreeForJSTree(node) {
@@ -95,6 +96,9 @@ export default class Search extends CatalogPage {
 
         if (this.context.enableSizes) {
             sizePreview();
+        }
+        if (this.context.enableImageHoverSwitcher) {
+            imageHover();
         }
 
         // Init collapsibles
@@ -230,6 +234,9 @@ export default class Search extends CatalogPage {
 
             if (this.context.enableSizes) {
                 sizePreview();
+            }
+            if (this.context.enableImageHoverSwitcher) {
+                imageHover();
             }
         });
     }
