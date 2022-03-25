@@ -162,6 +162,16 @@ body {
     font-style: italic;
     text-transform: none;
     margin: 0;
+    &.home-page-heading{
+        font-style: normal;
+        font-family: $fontFamily-sans;
+        font-weight: $fontWeight-normal;
+        text-transform: uppercase;
+        font-size: 20px;
+    }
+    &.home-brand-heading{
+        text-transform: capitalize !important;
+    }
 }
 
 .navPages {
@@ -201,22 +211,30 @@ body {
 }
 
 .eapps-instagram-feed-title a {
-    font-family: 'Noto Serif', 'Times', 'Times New Roman', 'serif' !important;
-    font-style: italic !important;
-    text-transform: none;
+    //font-family: 'Noto Serif', 'Times', 'Times New Roman', 'serif' !important;
+    font-family: $fontFamily-sans;
+    //font-style: italic !important;
+    font-style: normal !important;
+    font-weight: $fontWeight_normal !important;
+    text-transform: capitalize !important;
+    //text-transform: none;
     margin: 0;
     padding: 0 !important;
-    font-size: 22px !important;
+    font-size: 20px !important;
 }
 
 .eapps-instagram-feed-title {
     padding: 0 !important;
-    font-family: 'Noto Serif', 'Times', 'Times New Roman', 'serif' !important;
-    font-style: italic !important;
-    text-transform: none !important;
+    //font-family: 'Noto Serif', 'Times', 'Times New Roman', 'serif' !important;
+    font-family: $fontFamily-sans;
+    font-weight: $fontWeight_normal !important;
+    //font-style: italic !important;
+    font-style: normal !important;
+    //text-transform: none !important;
     margin: 0;
     padding: 0 !important;
-    font-size: 22px !important;
+    font-size: 20px !important;
+    text-transform: capitalize !important;
 }
 /*.page-sidebar+.page-content.gift-voucher {
     width: 100%;
@@ -1382,5 +1400,53 @@ body ul.breadcrumbs {
         .shop-hours-inn{
             width: 50%;
         }
+    }
+}
+
+.home-page{
+    .featuredCategory-name{
+        background: none;
+        font-style: normal;
+        width: 100%;
+        //font-family: $fontFamily-sans;
+        font-family: 'Noto Serif', Times, 'Times New Roman', serif;
+        h2{
+            margin-top: 0;
+            margin-bottom: 0;
+            font-weight: 100;
+            text-transform: capitalize;
+            //font-family: $fontFamily-sans;
+            font-family: 'Noto Serif', Times, 'Times New Roman', serif;
+            font-style: normal;
+            letter-spacing: 1.5px;
+            @include breakpoint("medium"){
+                color: $color-white;
+            }
+        }
+        p{
+            margin-bottom: 0;
+            //font-family: $fontFamily-sans;
+            font-family: 'Noto Serif', Times, 'Times New Roman', serif;
+            text-transform: uppercase;
+            font-size: 11px;
+            font-weight: 100;
+            font-style: normal;
+            color: #050505;
+            @include breakpoint("medium"){
+                color: $color-white;
+            }
+        }
+        @include breakpoint("medium"){
+            width: 100%;
+            padding-bottom: 0.5rem;
+        }
+    }
+    .brandName{
+        font-style: normal;
+        font-family: $fontFamily-sans;
+    }
+    .blogPost-title{
+        font-style: normal;
+        font-family: $fontFamily-sans;
     }
 }

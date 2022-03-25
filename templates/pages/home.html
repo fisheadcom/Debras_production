@@ -25,7 +25,7 @@ blog:
         {{/or}}
     {{/if}}
     {{{snippet 'home_content'}}}
-    <h1 class="page-heading"><span>{{lang 'home.title'}}</span></h1>
+    <h1 class="page-heading home-page-heading home-brand-heading"><span>{{lang 'home.title'}}</span></h1>
 {{/partial}}
 
 {{#partial "page"}}
@@ -34,52 +34,64 @@ blog:
         {{> components/common/alert-info message}}
     {{/each}}
 
-<div class="main full">
+<div class="main full home-page">
 
     <section class="content">
         <ul class="featuredCategories featuredCategoriesColumns--4">
             <li class="featuredCategory">
                 <a href="/bras/best-selling/">
-                    <div class="featuredCategory-image"><img class="lazyload" data-sizes="(max-width: 1350px) 288px, 500px" src="https://cdn11.bigcommerce.com/s-erjiavjjgd/stencil/0b9c63e0-b151-0137-3fa3-0242ac110008/e/53741f40-bdca-0137-3117-0242ac110025/img/loading.svg" data-src="https://cdn11.bigcommerce.com/s-erjiavjjgd/product_images/uploaded_images/fitters-favourites-resized6.jpg" 
+                    <div class="featuredCategory-image"><img class="lazyload" data-sizes="(max-width: 1350px) 288px, 500px" src="https://cdn11.bigcommerce.com/s-erjiavjjgd/stencil/0b9c63e0-b151-0137-3fa3-0242ac110008/e/53741f40-bdca-0137-3117-0242ac110025/img/loading.svg" data-src="https://store-erjiavjjgd.mybigcommerce.com/product_images/uploaded_images/home-banners/fitters-favourites-primadonna-deauville.jpg"
                         data-srcset="
-                        https://cdn11.bigcommerce.com/s-erjiavjjgd/product_images/uploaded_images/fitters-favourites.png 500w, 
-                        https://cdn11.bigcommerce.com/s-erjiavjjgd/product_images/uploaded_images/fitters-favourites-resized6.jpg 288w"
+                        https://store-erjiavjjgd.mybigcommerce.com/product_images/uploaded_images/home-banners/fitters-favourites-primadonna-deauville.jpg 500w,
+                     https://store-erjiavjjgd.mybigcommerce.com/product_images/uploaded_images/home-banners/fitters-favourites-primadonna-deauville.jpg 288w"
                         sizes="(max-width: 1350px) 288px, 500px"
                         alt="Fitter’s Favourites" width="500px" height="500px"></div>
-                    <div class="featuredCategory-name">Fitter’s Favourites</div>
+                    <div class="featuredCategory-name">
+                       <h2>Fitter’s Favourites</h2>
+                        <p>Shop Now</p>
+                    </div>
                 </a>
             </li>
             <li class="featuredCategory">
                 <a href="/maternity/">
-                    <div class="featuredCategory-image"><img class="lazyload" data-sizes="(max-width: 1350px) 288px, 500px" src="https://cdn11.bigcommerce.com/s-erjiavjjgd/stencil/0b9c63e0-b151-0137-3fa3-0242ac110008/e/53741f40-bdca-0137-3117-0242ac110025/img/loading.svg" data-src="https://cdn11.bigcommerce.com/s-erjiavjjgd/product_images/uploaded_images/maternity-resized6.jpg" 
+                    <div class="featuredCategory-image"><img class="lazyload" data-sizes="(max-width: 1350px) 288px, 500px" src="https://cdn11.bigcommerce.com/s-erjiavjjgd/stencil/0b9c63e0-b151-0137-3fa3-0242ac110008/e/53741f40-bdca-0137-3117-0242ac110025/img/loading.svg" data-src="https://store-erjiavjjgd.mybigcommerce.com/product_images/uploaded_images/home-banners/maternity-hotmilk-show-off.jpg"
                         data-srcset="
-                        https://cdn11.bigcommerce.com/s-erjiavjjgd/product_images/uploaded_images/maternity.png 500w, 
-                        https://cdn11.bigcommerce.com/s-erjiavjjgd/product_images/uploaded_images/maternity-resized6.jpg 288w"
+                        https://store-erjiavjjgd.mybigcommerce.com/product_images/uploaded_images/home-banners/maternity-hotmilk-show-off.jpg 500w,
+                        https://store-erjiavjjgd.mybigcommerce.com/product_images/uploaded_images/home-banners/maternity-hotmilk-show-off.jpg 288w"
                         sizes="(max-width: 1350px) 288px, 500px"
                         alt="Maternity" width="500px" height="500px"></div>
-                    <div class="featuredCategory-name">Maternity</div>
+                    <div class="featuredCategory-name">
+                        <h2>Maternity</h2>
+                        <p>Shop Now</p>
+                    </div>
                 </a>
             </li>
             <li class="featuredCategory">
                 <a href="/sport/">
-                    <div class="featuredCategory-image"><img class="lazyload" data-sizes="(max-width: 1350px) 288px, 440px" src="https://cdn11.bigcommerce.com/s-erjiavjjgd/stencil/0b9c63e0-b151-0137-3fa3-0242ac110008/e/53741f40-bdca-0137-3117-0242ac110025/img/loading.svg" data-src="https://cdn11.bigcommerce.com/s-erjiavjjgd/product_images/uploaded_images/999999999.20200913234529867.999999999.20200913234529867ffdmx.jpeg"
+                    <div class="featuredCategory-image"><img class="lazyload" data-sizes="(max-width: 1350px) 288px, 440px" src="https://cdn11.bigcommerce.com/s-erjiavjjgd/stencil/0b9c63e0-b151-0137-3fa3-0242ac110008/e/53741f40-bdca-0137-3117-0242ac110025/img/loading.svg" data-src="https://store-erjiavjjgd.mybigcommerce.com/product_images/uploaded_images/home-banners/sportswear-panache-sport-abstract-ink.jpg"
                         data-srcset="
-                        https://cdn11.bigcommerce.com/s-erjiavjjgd/product_images/uploaded_images/999999999.20200913234529867.999999999.20200913234529867ffdmx.jpeg 440w, 
-                        https://cdn11.bigcommerce.com/s-erjiavjjgd/product_images/uploaded_images/999999999.20200913234529867.999999999.20200913234529867ffdmx-resized6.jpg 288w"
+                        https://store-erjiavjjgd.mybigcommerce.com/product_images/uploaded_images/home-banners/sportswear-panache-sport-abstract-ink.jpg 440w,
+                        https://store-erjiavjjgd.mybigcommerce.com/product_images/uploaded_images/home-banners/sportswear-panache-sport-abstract-ink.jpg 288w"
                         sizes="(max-width: 1350px) 288px, 440px"
                     alt="Sportswear" width="500px" height="500px"></div>
-                    <div class="featuredCategory-name">Sportswear</div>
+                    <div class="featuredCategory-name">
+                        <h2>Sportswear</h2>
+                        <p>Shop Now</p>
+                    </div>
                 </a>
             </li>
             <li class="featuredCategory">
                 <a href="/swim/">
-                    <div class="featuredCategory-image"><img class="lazyload" data-sizes="(max-width: 1350px) 288px, 440px" src="https://cdn11.bigcommerce.com/s-erjiavjjgd/stencil/0b9c63e0-b151-0137-3fa3-0242ac110008/e/53741f40-bdca-0137-3117-0242ac110025/img/loading.svg" data-src="https://cdn11.bigcommerce.com/s-erjiavjjgd/product_images/uploaded_images/999999999.20200913234529772.999999999.20200913234529772nwvll-resized6.jpg" 
+                    <div class="featuredCategory-image"><img class="lazyload" data-sizes="(max-width: 1350px) 288px, 440px" src="https://cdn11.bigcommerce.com/s-erjiavjjgd/stencil/0b9c63e0-b151-0137-3fa3-0242ac110008/e/53741f40-bdca-0137-3117-0242ac110025/img/loading.svg" data-src="https://store-erjiavjjgd.mybigcommerce.com/product_images/uploaded_images/home-banners/swimwear-primadonna-swim-olbia.jpg"
                         data-srcset="
-                        https://cdn11.bigcommerce.com/s-erjiavjjgd/product_images/uploaded_images/999999999.20200913234529772.999999999.20200913234529772nwvll.jpeg 440w, 
-                        https://cdn11.bigcommerce.com/s-erjiavjjgd/product_images/uploaded_images/999999999.20200913234529772.999999999.20200913234529772nwvll-resized6.jpg 288w"
+                        https://store-erjiavjjgd.mybigcommerce.com/product_images/uploaded_images/home-banners/swimwear-primadonna-swim-olbia.jpg 440w,
+                        https://store-erjiavjjgd.mybigcommerce.com/product_images/uploaded_images/home-banners/swimwear-primadonna-swim-olbia.jpg 288w"
                         sizes="(max-width: 1350px) 288px, 440px"
                         alt="Swimwear" width="500px" height="500px"></div>
-                    <div class="featuredCategory-name">Swimwear</div>
+                    <div class="featuredCategory-name">
+                        <h2>Swimwear</h2>
+                        <p>Shop Now</p>
+                    </div>
                 </a>
             </li>
         </ul>

@@ -1,5 +1,5 @@
 <section class="content">
-    <h2 class="page-heading"><span>{{lang 'blog.recent_posts'}}</span></h2>
+    <h2 class="page-heading home-page-heading"><span>{{lang 'blog.recent_posts'}}</span></h2>
     <ul class="blogPosts postColumns--{{columns}}" data-equalizer>
         {{#each posts}}
         <li class="blogPost"{{> components/f/animations/aos delay=(multiply (add @index 1) 20) theme_settings=../theme_settings}} data-equalizer-watch>
