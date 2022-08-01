@@ -79,3 +79,9 @@ _learnq.push(['trackViewedItem', {
  } 
  }]);
 </script>
+<script type="text/javascript">
+    var _learnq = _learnq || [];
+    document.getElementById("form-action-addToCart").addEventListener('click',function (){
+        _learnq.push(['track', 'Added to Cart', item]);
+    });
+</script>
